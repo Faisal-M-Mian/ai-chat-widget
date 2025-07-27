@@ -1,0 +1,410 @@
+025-Jul-27 07:10:27.912060
+Starting deployment of Faisal-M-Mian/ai-chat-widget:main to localhost.
+2025-Jul-27 07:10:28.689295
+Preparing container with helper image: ghcr.io/coollabsio/coolify-helper:1.0.8.
+2025-Jul-27 07:10:28.999142
+[CMD]: docker stop --time=30 fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:10:28.999142
+Flag --time has been deprecated, use --timeout instead
+2025-Jul-27 07:10:29.027648
+Error response from daemon: No such container: fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:10:29.525298
+[CMD]: docker rm -f fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:10:29.525298
+Error response from daemon: No such container: fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:10:29.869927
+[CMD]: docker run -d --network coolify --name fscoc44ggo8ssooocs0wcsgo --rm -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/coollabsio/coolify-helper:1.0.8
+2025-Jul-27 07:10:29.869927
+d2194e35b460f788dad02d4ff24d52822c2afd219d535321c5b3f27a60cf81f6
+2025-Jul-27 07:10:32.431926
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'GIT_SSH_COMMAND="ssh -o ConnectTimeout=30 -p 22 -o Port=22 -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git ls-remote https://github.com/Faisal-M-Mian/ai-chat-widget main'
+2025-Jul-27 07:10:32.431926
+1367573689e9a2bcc4bf3ba5da48257dafed3368	refs/heads/main
+2025-Jul-27 07:10:32.566841
+----------------------------------------
+2025-Jul-27 07:10:32.573660
+Importing Faisal-M-Mian/ai-chat-widget:main (commit sha HEAD) to /artifacts/fscoc44ggo8ssooocs0wcsgo.
+2025-Jul-27 07:10:33.279871
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'git clone -b "main" https://github.com/Faisal-M-Mian/ai-chat-widget /artifacts/fscoc44ggo8ssooocs0wcsgo && cd /artifacts/fscoc44ggo8ssooocs0wcsgo && sed -i "s#git@\(.*\):#https://\1/#g" /artifacts/fscoc44ggo8ssooocs0wcsgo/.gitmodules || true && cd /artifacts/fscoc44ggo8ssooocs0wcsgo && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git submodule update --init --recursive && cd /artifacts/fscoc44ggo8ssooocs0wcsgo && GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" git lfs pull'
+2025-Jul-27 07:10:33.279871
+Cloning into '/artifacts/fscoc44ggo8ssooocs0wcsgo'...
+2025-Jul-27 07:10:34.377611
+sed: /artifacts/fscoc44ggo8ssooocs0wcsgo/.gitmodules: No such file or directory
+2025-Jul-27 07:10:35.938060
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'cd /artifacts/fscoc44ggo8ssooocs0wcsgo && git log -1 1367573689e9a2bcc4bf3ba5da48257dafed3368 --pretty=%B'
+2025-Jul-27 07:10:35.938060
+Add files via upload
+2025-Jul-27 07:10:36.736847
+Image not found (is4s4os0wssw0cgkk0c04k80:1367573689e9a2bcc4bf3ba5da48257dafed3368). Building new image.
+2025-Jul-27 07:10:39.579775
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'cat /artifacts/fscoc44ggo8ssooocs0wcsgo/Dockerfile'
+2025-Jul-27 07:10:39.579775
+# Use Node.js 20 LTS
+2025-Jul-27 07:10:39.579775
+FROM node:20-alpine
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Set working directory
+2025-Jul-27 07:10:39.579775
+WORKDIR /app
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Copy package files
+2025-Jul-27 07:10:39.579775
+COPY package*.json ./
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Install all dependencies (including devDependencies for build)
+2025-Jul-27 07:10:39.579775
+RUN npm ci
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Copy source code
+2025-Jul-27 07:10:39.579775
+COPY . .
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Build the application
+2025-Jul-27 07:10:39.579775
+RUN npm run build
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Remove devDependencies to reduce image size
+2025-Jul-27 07:10:39.579775
+RUN npm prune --production
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Expose port
+2025-Jul-27 07:10:39.579775
+EXPOSE 5000
+2025-Jul-27 07:10:39.579775
+2025-Jul-27 07:10:39.579775
+# Start the application
+2025-Jul-27 07:10:39.579775
+CMD ["npm", "start"]
+2025-Jul-27 07:10:40.768280
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'cat /artifacts/fscoc44ggo8ssooocs0wcsgo/Dockerfile'
+2025-Jul-27 07:10:40.768280
+# Use Node.js 20 LTS
+2025-Jul-27 07:10:40.768280
+FROM node:20-alpine
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Set working directory
+2025-Jul-27 07:10:40.768280
+WORKDIR /app
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Copy package files
+2025-Jul-27 07:10:40.768280
+COPY package*.json ./
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Install all dependencies (including devDependencies for build)
+2025-Jul-27 07:10:40.768280
+RUN npm ci
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Copy source code
+2025-Jul-27 07:10:40.768280
+COPY . .
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Build the application
+2025-Jul-27 07:10:40.768280
+RUN npm run build
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Remove devDependencies to reduce image size
+2025-Jul-27 07:10:40.768280
+RUN npm prune --production
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Expose port
+2025-Jul-27 07:10:40.768280
+EXPOSE 5000
+2025-Jul-27 07:10:40.768280
+2025-Jul-27 07:10:40.768280
+# Start the application
+2025-Jul-27 07:10:40.768280
+CMD ["npm", "start"]
+2025-Jul-27 07:10:41.298636
+----------------------------------------
+2025-Jul-27 07:10:41.352341
+Building docker image started.
+2025-Jul-27 07:10:41.370021
+To check the current progress, click on Show Debug Logs.
+2025-Jul-27 07:10:43.189637
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'cat /artifacts/build.sh'
+2025-Jul-27 07:10:43.189637
+docker build  --add-host coolify:10.0.1.6 --add-host coolify-db:10.0.1.4 --add-host coolify-realtime:10.0.1.2 --add-host coolify-redis:10.0.1.5 --network host -f /artifacts/fscoc44ggo8ssooocs0wcsgo/Dockerfile --build-arg SOURCE_COMMIT='1367573689e9a2bcc4bf3ba5da48257dafed3368' --build-arg 'COOLIFY_URL=https://chatwidget.datagen.agency/' --build-arg 'COOLIFY_FQDN=chatwidget.datagen.agency/' --build-arg 'COOLIFY_BRANCH=main' --build-arg 'COOLIFY_RESOURCE_UUID=is4s4os0wssw0cgkk0c04k80' --build-arg 'COOLIFY_CONTAINER_NAME=is4s4os0wssw0cgkk0c04k80-071025785072' --progress plain -t is4s4os0wssw0cgkk0c04k80:1367573689e9a2bcc4bf3ba5da48257dafed3368 /artifacts/fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:10:44.698449
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'bash /artifacts/build.sh'
+2025-Jul-27 07:10:44.698449
+#0 building with "default" instance using docker driver
+2025-Jul-27 07:10:44.698449
+2025-Jul-27 07:10:44.698449
+#1 [internal] load build definition from Dockerfile
+2025-Jul-27 07:10:44.698449
+#1 transferring dockerfile: 457B done
+2025-Jul-27 07:10:44.698449
+#1 DONE 0.1s
+2025-Jul-27 07:10:44.698449
+2025-Jul-27 07:10:44.698449
+#2 [internal] load metadata for docker.io/library/node:20-alpine
+2025-Jul-27 07:10:46.187742
+#2 DONE 1.7s
+2025-Jul-27 07:10:46.293691
+#3 [internal] load .dockerignore
+2025-Jul-27 07:10:46.293691
+#3 transferring context: 2B done
+2025-Jul-27 07:10:46.293691
+#3 DONE 0.0s
+2025-Jul-27 07:10:46.434252
+#4 [1/7] FROM docker.io/library/node:20-alpine@sha256:df02558528d3d3d0d621f112e232611aecfee7cbc654f6b375765f72bb262799
+2025-Jul-27 07:10:46.434252
+#4 resolve docker.io/library/node:20-alpine@sha256:df02558528d3d3d0d621f112e232611aecfee7cbc654f6b375765f72bb262799 0.0s done
+2025-Jul-27 07:10:46.434252
+#4 sha256:df02558528d3d3d0d621f112e232611aecfee7cbc654f6b375765f72bb262799 7.67kB / 7.67kB done
+2025-Jul-27 07:10:46.434252
+#4 sha256:ae6ee91a652d927de01d550c29f863a52f1da390c89df95f3ceba256d1e62604 1.72kB / 1.72kB done
+2025-Jul-27 07:10:46.434252
+#4 sha256:7cdef5a331927fafa250be6166052d8599bf5eb7b014342538c2cc79b70a081f 6.42kB / 6.42kB done
+2025-Jul-27 07:10:46.434252
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 0B / 42.99MB 0.1s
+2025-Jul-27 07:10:46.434252
+#4 sha256:54225bd601967a0aa669ec9be621c24d8eeac874b698d55874018070898685c2 0B / 1.26MB 0.1s
+2025-Jul-27 07:10:46.538758
+#4 ...
+2025-Jul-27 07:10:46.538758
+2025-Jul-27 07:10:46.538758
+#5 [internal] load build context
+2025-Jul-27 07:10:46.538758
+#5 transferring context: 940.55kB 0.1s done
+2025-Jul-27 07:10:46.538758
+#5 DONE 0.2s
+2025-Jul-27 07:10:46.538758
+2025-Jul-27 07:10:46.538758
+#4 [1/7] FROM docker.io/library/node:20-alpine@sha256:df02558528d3d3d0d621f112e232611aecfee7cbc654f6b375765f72bb262799
+2025-Jul-27 07:10:46.538758
+#4 sha256:a9e48ad1219d4d11c6456a8db0fd5c11af46242d52edf84e17ab84a7bfd93809 0B / 445B 0.2s
+2025-Jul-27 07:10:46.731877
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 3.49MB / 42.99MB 0.4s
+2025-Jul-27 07:10:46.836238
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 7.34MB / 42.99MB 0.5s
+2025-Jul-27 07:10:47.155417
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 17.83MB / 42.99MB 0.8s
+2025-Jul-27 07:10:47.155417
+#4 sha256:54225bd601967a0aa669ec9be621c24d8eeac874b698d55874018070898685c2 1.26MB / 1.26MB 0.6s done
+2025-Jul-27 07:10:47.155417
+#4 sha256:a9e48ad1219d4d11c6456a8db0fd5c11af46242d52edf84e17ab84a7bfd93809 445B / 445B 0.6s done
+2025-Jul-27 07:10:47.348855
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 23.07MB / 42.99MB 1.0s
+2025-Jul-27 07:10:47.542149
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 30.41MB / 42.99MB 1.2s
+2025-Jul-27 07:10:47.838286
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 33.97MB / 42.99MB 1.4s
+2025-Jul-27 07:10:47.943601
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 40.89MB / 42.99MB 1.6s
+2025-Jul-27 07:10:48.236348
+#4 sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 42.99MB / 42.99MB 1.8s done
+2025-Jul-27 07:10:48.457144
+#4 extracting sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 0.1s
+2025-Jul-27 07:10:53.469945
+#4 extracting sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 5.1s
+2025-Jul-27 07:10:57.831895
+#4 extracting sha256:8c59d92d6fc9f01af4aaa86824be72b74bd4d940c4c46aa95d9710bfa46c975e 9.5s done
+2025-Jul-27 07:10:59.380281
+#4 extracting sha256:54225bd601967a0aa669ec9be621c24d8eeac874b698d55874018070898685c2
+2025-Jul-27 07:11:00.155637
+#4 extracting sha256:54225bd601967a0aa669ec9be621c24d8eeac874b698d55874018070898685c2 0.7s done
+2025-Jul-27 07:11:00.155637
+#4 extracting sha256:a9e48ad1219d4d11c6456a8db0fd5c11af46242d52edf84e17ab84a7bfd93809
+2025-Jul-27 07:11:00.313577
+#4 extracting sha256:a9e48ad1219d4d11c6456a8db0fd5c11af46242d52edf84e17ab84a7bfd93809 done
+2025-Jul-27 07:11:00.329790
+#4 DONE 14.0s
+2025-Jul-27 07:11:00.483078
+#6 [2/7] WORKDIR /app
+2025-Jul-27 07:11:00.641304
+#6 DONE 0.3s
+2025-Jul-27 07:11:00.818528
+#7 [3/7] COPY package*.json ./
+2025-Jul-27 07:11:01.093724
+#7 DONE 0.4s
+2025-Jul-27 07:11:01.284635
+#8 [4/7] RUN npm ci
+2025-Jul-27 07:11:23.564164
+#8 22.47 npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+2025-Jul-27 07:11:23.803752
+#8 22.55 npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+2025-Jul-27 07:11:46.660555
+#8 45.55
+2025-Jul-27 07:11:46.660555
+#8 45.55 added 481 packages, and audited 482 packages in 45s
+2025-Jul-27 07:11:46.660555
+#8 45.55
+2025-Jul-27 07:11:46.660555
+#8 45.55 64 packages are looking for funding
+2025-Jul-27 07:11:46.660555
+#8 45.55   run `npm fund` for details
+2025-Jul-27 07:11:46.764184
+#8 45.67
+2025-Jul-27 07:11:46.764184
+#8 45.67 11 vulnerabilities (3 low, 8 moderate)
+2025-Jul-27 07:11:46.764184
+#8 45.67
+2025-Jul-27 07:11:46.764184
+#8 45.67 To address issues that do not require attention, run:
+2025-Jul-27 07:11:46.764184
+#8 45.67   npm audit fix
+2025-Jul-27 07:11:46.764184
+#8 45.67
+2025-Jul-27 07:11:46.764184
+#8 45.67 To address all issues (including breaking changes), run:
+2025-Jul-27 07:11:46.764184
+#8 45.67   npm audit fix --force
+2025-Jul-27 07:11:46.764184
+#8 45.67
+2025-Jul-27 07:11:46.764184
+#8 45.67 Run `npm audit` for details.
+2025-Jul-27 07:11:46.923355
+#8 45.67 npm notice
+2025-Jul-27 07:11:46.960299
+#8 45.67 npm notice New major version of npm available! 10.8.2 -> 11.5.1
+2025-Jul-27 07:11:46.960299
+#8 45.67 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.5.1
+2025-Jul-27 07:11:46.960299
+#8 45.67 npm notice To update run: npm install -g npm@11.5.1
+2025-Jul-27 07:11:46.960299
+#8 45.67 npm notice
+2025-Jul-27 07:11:47.410456
+#8 DONE 46.3s
+2025-Jul-27 07:11:47.566667
+#9 [5/7] COPY . .
+2025-Jul-27 07:11:47.592678
+#9 DONE 0.2s
+2025-Jul-27 07:11:47.748813
+#10 [6/7] RUN npm run build
+2025-Jul-27 07:11:48.382330
+#10 0.782
+2025-Jul-27 07:11:48.382330
+#10 0.782 > rest-express@1.0.0 build
+2025-Jul-27 07:11:48.382330
+#10 0.782 > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-Jul-27 07:11:48.382330
+#10 0.782
+2025-Jul-27 07:11:49.344182
+#10 1.728 vite v5.4.19 building for production...
+2025-Jul-27 07:11:49.614023
+#10 2.017 <script src="/widget.js"> in "/index.html" can't be bundled without type="module" attribute
+2025-Jul-27 07:11:49.781188
+#10 2.025 transforming...
+2025-Jul-27 07:11:51.228815
+#10 3.628 Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+2025-Jul-27 07:11:51.228815
+#10 3.628   npx update-browserslist-db@latest
+2025-Jul-27 07:11:51.228815
+#10 3.628   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-Jul-27 07:12:16.684352
+#10 29.06 ✓ 1663 modules transformed.
+2025-Jul-27 07:12:17.232892
+#10 29.63 rendering chunks...
+2025-Jul-27 07:12:17.460384
+#10 29.67 computing gzip size...
+2025-Jul-27 07:12:17.460384
+#10 29.70 ../dist/public/index.html                   0.69 kB │ gzip:  0.41 kB
+2025-Jul-27 07:12:17.460384
+#10 29.70 ../dist/public/assets/index-p6Xph8pV.css   60.30 kB │ gzip: 10.83 kB
+2025-Jul-27 07:12:17.460384
+#10 29.70 ../dist/public/assets/index-CQgrzUzw.js   267.32 kB │ gzip: 87.03 kB
+2025-Jul-27 07:12:17.460384
+#10 29.70 ✓ built in 27.74s
+2025-Jul-27 07:12:17.516673
+#10 29.91
+2025-Jul-27 07:12:17.516673
+#10 29.91   dist/index.js  7.0kb
+2025-Jul-27 07:12:17.516673
+#10 29.91
+2025-Jul-27 07:12:17.516673
+#10 29.91 ⚡ Done in 21ms
+2025-Jul-27 07:12:17.797552
+#10 DONE 30.2s
+2025-Jul-27 07:12:17.947787
+#11 [7/7] RUN npm prune --production
+2025-Jul-27 07:12:18.369163
+#11 0.578 npm warn config production Use `--omit=dev` instead.
+2025-Jul-27 07:12:25.654346
+#11 7.862
+2025-Jul-27 07:12:25.654346
+#11 7.862 up to date, audited 373 packages in 7s
+2025-Jul-27 07:12:25.654346
+#11 7.862
+2025-Jul-27 07:12:25.654346
+#11 7.862 52 packages are looking for funding
+2025-Jul-27 07:12:25.654346
+#11 7.862   run `npm fund` for details
+2025-Jul-27 07:12:25.817761
+#11 7.867
+2025-Jul-27 07:12:25.817761
+#11 7.867 3 low severity vulnerabilities
+2025-Jul-27 07:12:25.817761
+#11 7.867
+2025-Jul-27 07:12:25.817761
+#11 7.867 To address all issues, run:
+2025-Jul-27 07:12:25.817761
+#11 7.867   npm audit fix
+2025-Jul-27 07:12:25.817761
+#11 7.867
+2025-Jul-27 07:12:25.817761
+#11 7.867 Run `npm audit` for details.
+2025-Jul-27 07:12:25.861917
+#11 DONE 8.1s
+2025-Jul-27 07:12:26.042414
+#12 exporting to image
+2025-Jul-27 07:12:26.042414
+#12 exporting layers
+2025-Jul-27 07:12:40.235413
+#12 exporting layers 14.3s done
+2025-Jul-27 07:12:40.457980
+#12 writing image sha256:c517a61512258a85e5c597caad2e8fcd972cfbd1a88ab7909c230694cb522b79 0.0s done
+2025-Jul-27 07:12:40.457980
+#12 naming to docker.io/library/is4s4os0wssw0cgkk0c04k80:1367573689e9a2bcc4bf3ba5da48257dafed3368 0.0s done
+2025-Jul-27 07:12:40.457980
+#12 DONE 14.4s
+2025-Jul-27 07:12:40.649194
+Building docker image completed.
+2025-Jul-27 07:12:40.670356
+----------------------------------------
+2025-Jul-27 07:12:40.685657
+Rolling update started.
+2025-Jul-27 07:12:42.528937
+[CMD]: docker exec fscoc44ggo8ssooocs0wcsgo bash -c 'SOURCE_COMMIT=1367573689e9a2bcc4bf3ba5da48257dafed3368 COOLIFY_URL=https://chatwidget.datagen.agency COOLIFY_FQDN=chatwidget.datagen.agency COOLIFY_BRANCH=main  docker compose --project-name is4s4os0wssw0cgkk0c04k80 --project-directory /artifacts/fscoc44ggo8ssooocs0wcsgo -f /artifacts/fscoc44ggo8ssooocs0wcsgo/docker-compose.yaml up --build -d'
+2025-Jul-27 07:12:42.528937
+Container is4s4os0wssw0cgkk0c04k80-071025785072  Creating
+2025-Jul-27 07:12:42.725442
+is4s4os0wssw0cgkk0c04k80-071025785072 Your kernel does not support memory swappiness capabilities or the cgroup is not mounted. Memory swappiness discarded.
+2025-Jul-27 07:12:42.766248
+Container is4s4os0wssw0cgkk0c04k80-071025785072  Created
+2025-Jul-27 07:12:42.766248
+Container is4s4os0wssw0cgkk0c04k80-071025785072  Starting
+2025-Jul-27 07:12:43.509230
+Container is4s4os0wssw0cgkk0c04k80-071025785072  Started
+2025-Jul-27 07:12:43.555730
+New container started.
+2025-Jul-27 07:12:43.571488
+Removing old containers.
+2025-Jul-27 07:12:43.853701
+Rolling update completed.
+2025-Jul-27 07:12:44.582440
+Gracefully shutting down build container: fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:12:44.899396
+[CMD]: docker stop --time=30 fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:12:44.899396
+Flag --time has been deprecated, use --timeout instead
+2025-Jul-27 07:12:45.294185
+fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:12:45.488731
+[CMD]: docker rm -f fscoc44ggo8ssooocs0wcsgo
+2025-Jul-27 07:12:45.488731
+Error response from daemon: No such container: fscoc44ggo8ssooocs0wcsgo

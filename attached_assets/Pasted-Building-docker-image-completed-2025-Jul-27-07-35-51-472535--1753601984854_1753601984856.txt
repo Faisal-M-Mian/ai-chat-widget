@@ -1,0 +1,180 @@
+Building docker image completed.
+2025-Jul-27 07:35:51.472535
+----------------------------------------
+2025-Jul-27 07:35:51.488677
+Rolling update started.
+2025-Jul-27 07:35:52.921759
+[CMD]: docker exec pkkgk8gs40w8goo4sgwko8w4 bash -c 'SOURCE_COMMIT=dafd8cb4d72ae0e3996b4c2abe2f15ce9adef3e8 COOLIFY_URL=https://chatwidget.datagen.agency COOLIFY_FQDN=chatwidget.datagen.agency COOLIFY_BRANCH=main  docker compose --project-name y8s44w08cwggs0g8wccwww4s --project-directory /artifacts/pkkgk8gs40w8goo4sgwko8w4 -f /artifacts/pkkgk8gs40w8goo4sgwko8w4/docker-compose.yaml up --build -d'
+2025-Jul-27 07:35:52.921759
+Container y8s44w08cwggs0g8wccwww4s-073343550475  Creating
+2025-Jul-27 07:35:53.149299
+y8s44w08cwggs0g8wccwww4s-073343550475 Your kernel does not support memory swappiness capabilities or the cgroup is not mounted. Memory swappiness discarded.
+2025-Jul-27 07:35:53.166617
+Container y8s44w08cwggs0g8wccwww4s-073343550475  Created
+2025-Jul-27 07:35:53.203431
+Container y8s44w08cwggs0g8wccwww4s-073343550475  Starting
+2025-Jul-27 07:35:54.396510
+Container y8s44w08cwggs0g8wccwww4s-073343550475  Started
+2025-Jul-27 07:35:54.459514
+New container started.
+2025-Jul-27 07:35:54.467755
+Custom healthcheck found, skipping default healthcheck.
+2025-Jul-27 07:35:54.476179
+Waiting for healthcheck to pass on the new container.
+2025-Jul-27 07:35:54.490719
+Waiting for the start period (5 seconds) before starting healthcheck.
+2025-Jul-27 07:36:00.327184
+[CMD]: docker inspect --format='{{json .State.Health.Status}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:36:00.327184
+"starting"
+2025-Jul-27 07:36:01.359402
+[CMD]: docker inspect --format='{{json .State.Health.Log}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:36:01.359402
+[{"Start":"2025-07-27T09:35:59.38614784+02:00","End":"2025-07-27T09:35:59.63893812+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"}]
+2025-Jul-27 07:36:01.427078
+Attempt 1 of 3 | Healthcheck status: "starting"
+2025-Jul-27 07:36:01.459348
+Healthcheck logs: file:///app/healthcheck.js:1
+2025-Jul-27 07:36:01.459348
+const http = require('http');
+2025-Jul-27 07:36:01.459348
+^
+2025-Jul-27 07:36:01.459348
+2025-Jul-27 07:36:01.459348
+ReferenceError: require is not defined in ES module scope, you can use import instead
+2025-Jul-27 07:36:01.459348
+This file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+2025-Jul-27 07:36:01.459348
+at file:///app/healthcheck.js:1:14
+2025-Jul-27 07:36:01.459348
+at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+2025-Jul-27 07:36:01.459348
+at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+2025-Jul-27 07:36:01.459348
+at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+2025-Jul-27 07:36:01.459348
+2025-Jul-27 07:36:01.459348
+Node.js v20.19.4
+2025-Jul-27 07:36:01.459348
+| Return code: 1
+2025-Jul-27 07:36:32.025841
+[CMD]: docker inspect --format='{{json .State.Health.Status}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:36:32.025841
+"starting"
+2025-Jul-27 07:36:32.260189
+[CMD]: docker inspect --format='{{json .State.Health.Log}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:36:32.260189
+[{"Start":"2025-07-27T09:35:59.38614784+02:00","End":"2025-07-27T09:35:59.63893812+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"},{"Start":"2025-07-27T09:36:29.65649445+02:00","End":"2025-07-27T09:36:30.024459557+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"}]
+2025-Jul-27 07:36:32.272244
+Attempt 2 of 3 | Healthcheck status: "starting"
+2025-Jul-27 07:36:32.281750
+Healthcheck logs: file:///app/healthcheck.js:1
+2025-Jul-27 07:36:32.281750
+const http = require('http');
+2025-Jul-27 07:36:32.281750
+^
+2025-Jul-27 07:36:32.281750
+2025-Jul-27 07:36:32.281750
+ReferenceError: require is not defined in ES module scope, you can use import instead
+2025-Jul-27 07:36:32.281750
+This file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+2025-Jul-27 07:36:32.281750
+at file:///app/healthcheck.js:1:14
+2025-Jul-27 07:36:32.281750
+at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+2025-Jul-27 07:36:32.281750
+at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+2025-Jul-27 07:36:32.281750
+at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+2025-Jul-27 07:36:32.281750
+2025-Jul-27 07:36:32.281750
+Node.js v20.19.4
+2025-Jul-27 07:36:32.281750
+| Return code: 1
+2025-Jul-27 07:37:03.227417
+[CMD]: docker inspect --format='{{json .State.Health.Status}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:03.227417
+"unhealthy"
+2025-Jul-27 07:37:03.713417
+[CMD]: docker inspect --format='{{json .State.Health.Log}}' y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:03.713417
+[{"Start":"2025-07-27T09:35:59.38614784+02:00","End":"2025-07-27T09:35:59.63893812+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"},{"Start":"2025-07-27T09:36:29.65649445+02:00","End":"2025-07-27T09:36:30.024459557+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"},{"Start":"2025-07-27T09:37:00.033436508+02:00","End":"2025-07-27T09:37:02.028520299+02:00","ExitCode":1,"Output":"file:///app/healthcheck.js:1\nconst http = require('http');\n             ^\n\nReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at file:///app/healthcheck.js:1:14\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v20.19.4\n"}]
+2025-Jul-27 07:37:03.776475
+Attempt 3 of 3 | Healthcheck status: "unhealthy"
+2025-Jul-27 07:37:03.889241
+Healthcheck logs: file:///app/healthcheck.js:1
+2025-Jul-27 07:37:03.889241
+const http = require('http');
+2025-Jul-27 07:37:03.889241
+^
+2025-Jul-27 07:37:03.889241
+2025-Jul-27 07:37:03.889241
+ReferenceError: require is not defined in ES module scope, you can use import instead
+2025-Jul-27 07:37:03.889241
+This file is being treated as an ES module because it has a '.js' file extension and '/app/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+2025-Jul-27 07:37:03.889241
+at file:///app/healthcheck.js:1:14
+2025-Jul-27 07:37:03.889241
+at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+2025-Jul-27 07:37:03.889241
+at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+2025-Jul-27 07:37:03.889241
+at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+2025-Jul-27 07:37:03.889241
+2025-Jul-27 07:37:03.889241
+Node.js v20.19.4
+2025-Jul-27 07:37:03.889241
+| Return code: 1
+2025-Jul-27 07:37:03.992831
+----------------------------------------
+2025-Jul-27 07:37:04.009130
+Container logs:
+2025-Jul-27 07:37:04.293045
+[CMD]: docker logs -n 100 y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:04.293045
+> rest-express@1.0.0 start
+2025-Jul-27 07:37:04.293045
+> NODE_ENV=production node dist/index.js
+2025-Jul-27 07:37:04.293045
+2025-Jul-27 07:37:04.293045
+[2025-07-27T07:35:56.072Z] Starting server initialization...
+2025-Jul-27 07:37:04.293045
+[2025-07-27T07:35:56.109Z] Express server listening on port 5000
+2025-Jul-27 07:37:04.293045
+7:35:56 AM [express] serving on port 5000
+2025-Jul-27 07:37:04.304458
+----------------------------------------
+2025-Jul-27 07:37:04.317263
+Removing old containers.
+2025-Jul-27 07:37:04.334401
+----------------------------------------
+2025-Jul-27 07:37:04.356699
+WARNING: Dockerfile or Docker Image based deployment detected. The healthcheck needs a curl or wget command to check the health of the application. Please make sure that it is available in the image or turn off healthcheck on Coolify's UI.
+2025-Jul-27 07:37:04.392558
+----------------------------------------
+2025-Jul-27 07:37:04.411178
+New container is not healthy, rolling back to the old container.
+2025-Jul-27 07:37:04.615230
+[CMD]: docker stop --time=30 y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:04.615230
+Flag --time has been deprecated, use --timeout instead
+2025-Jul-27 07:37:06.236567
+y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:06.999904
+[CMD]: docker rm -f y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:06.999904
+y8s44w08cwggs0g8wccwww4s-073343550475
+2025-Jul-27 07:37:07.023293
+Rolling update completed.
+2025-Jul-27 07:37:09.425668
+Gracefully shutting down build container: pkkgk8gs40w8goo4sgwko8w4
+2025-Jul-27 07:37:10.185185
+[CMD]: docker stop --time=30 pkkgk8gs40w8goo4sgwko8w4
+2025-Jul-27 07:37:10.185185
+Flag --time has been deprecated, use --timeout instead
+2025-Jul-27 07:37:11.135990
+pkkgk8gs40w8goo4sgwko8w4
+2025-Jul-27 07:37:11.644009
+[CMD]: docker rm -f pkkgk8gs40w8goo4sgwko8w4
+2025-Jul-27 07:37:11.644009
+Error response from daemon: No such container: pkkgk8gs40w8goo4sgwko8w4
